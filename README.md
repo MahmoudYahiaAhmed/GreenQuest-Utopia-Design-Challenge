@@ -12,15 +12,15 @@ EcoTopia: The Green Game is an interactive and educational tool that enables use
 ## Installation
 
 1. **Clone the repository:**
-   git clone [https://github.com/""/ecotopia-the-green-game.git](https://github.com/MahmoudYahiaAhmed/GreenQuest-Utopia-Design-Challenge.git)
-   cd GreenQuest-Utopia-Design-Challenge
+   #### git clone (https://github.com/MahmoudYahiaAhmed/GreenQuest-Utopia-Design-Challenge.git)
+   #### cd GreenQuest-Utopia-Design-Challenge
 2. **Install the required libraries**
-   pip install streamlit pandas plotly python-dotenv google-generativeai openai
+   #### pip install streamlit pandas plotly python-dotenv google-generativeai openai
 3. **Set the API keys**
-   GOOGLE_API_KEY=your_google_api_key
-   OPENAI_API_KEY=your_openai_api_key
+   #### GOOGLE_API_KEY=your_google_api_key
+   #### OPENAI_API_KEY=your_openai_api_key
 4. **Run the Streamlit application**
-   streamlit run ecotopia.py
+   #### streamlit run ecotopia.py
 
 # Usage
 ## Adjust Characteristics:
