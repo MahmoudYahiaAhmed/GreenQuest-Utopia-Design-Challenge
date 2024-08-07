@@ -4,19 +4,18 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import google.generativeai as genai
-import openai
-
+from openai import OpenAI
 load_dotenv()
 
 google_api_key = os.getenv("GOOGLE_API_KEY")
-openai.api_key = os.getenv("OPENAI_API_KEY")
-
+client = OpenAI(
+  api_key=os.environ['OPENAI_API_KEY'],  # this is also the default, it can be omitted
+)
 if google_api_key:
     genai.configure(api_key=google_api_key)
 else:
     st.error("Google API key not found.")
 
-# Characteristics of a sustainable utopian society
 characteristics = [
     "Carbon Footprint",
     "Renewable Energy Usage",
@@ -163,7 +162,7 @@ if 'analysis_text' not in st.session_state:
 
 generate_image = st.button("Analyze your society with Google Gemini-pro")
 if generate_image:
-    if not google_api_key or not openai.api_key:
+    if not google_api_key or not client.api_key:
         st.error("API key(s) not found. Please configure the GOOGLE_API_KEY and OPENAI_API_KEY in the environment variables.")
         st.info("If you're running this locally, you can set the API keys in your system's environment variables.")
     else:
@@ -177,13 +176,12 @@ if generate_image:
             
             # Generate image with DALL-E 3
             try:
-                response = openai.Image.create(
+                response = client.images.generate(
                     model="dall-e-3",
                     prompt=image_prompt,
-                    size="1024x1024",
                     n=1,
                 )
-                st.session_state['generated_image'] = response['data'][0]['url']
+                st.session_state['generated_image'] = response.data[0].url
             except Exception as e:
                 st.error(f"Error generating image with DALL-E 3: {str(e)}")
             
