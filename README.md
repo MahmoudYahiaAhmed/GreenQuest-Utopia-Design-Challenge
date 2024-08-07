@@ -36,10 +36,10 @@ Click the "Analyze your society with Google Gemini-pro" button to get a textual 
 Click the "Use Google Gemini-pro to compare your utopia with the indices of the best countries" button to see how your society measures up against the best-performing nations.
 
 Acknowledgements
-Streamlit
-Pandas
-Plotly
-Google Generative AI
-OpenAI
+### Streamlit
+### Pandas
+### Plotly
+### Google Generative AI
+### OpenAI
 
 For any questions or feedback, please reach out to me at [maboe017@uottawa.ca].
